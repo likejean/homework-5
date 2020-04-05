@@ -27,6 +27,10 @@ export default ({ name }) => {
             counter.id === id ? { ...counter, value: count } : counter
         ));
 
+    const handleCounterResetClick = (id, count) =>  setCounterList([...counterList].map(counter =>
+            counter.id === id ? { ...counter, value: count } : counter
+        ));
+
     const handleCounterDeleteClick = e => {
         setCounterList([...counterList].filter(item => item.id !== +e.target.id));
         counterList.forEach((item, id) => {
@@ -40,6 +44,8 @@ export default ({ name }) => {
         inputChange: handleCounterInfoChange,
         deleteClick: handleCounterDeleteClick,
         updateClick: handleCounterValueUpdate,
+        resetClick: handleCounterResetClick
+
 
     };
     const handleStateProps = {
@@ -59,6 +65,7 @@ export default ({ name }) => {
                     key={idx}
                     deleteClick={handleEventProps.deleteClick}
                     updateClick={handleEventProps.updateClick}
+                    resetClick={handleEventProps.resetClick}
                     id={counter.id}
                     name={counter.name}
                     value={counter.value}

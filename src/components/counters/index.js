@@ -9,7 +9,7 @@ import DeleteCounterButton from "./menu/DeleteCounterButton";
 import EditCounterNameInput from "./menu/EditCounterNameInput";
 import ResetCounterButton from "./menu/ResetCounterButton";
 
-export default ({ id, name, value, deleteClick, updateClick }) => {
+export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
     const [ rangeLimits, setRangeLimits ] = useState({
         lower : 1,
         upper : 1,
@@ -39,7 +39,10 @@ export default ({ id, name, value, deleteClick, updateClick }) => {
         setCount(count + +e.target.getAttribute('step'));
         updateClick(id, count + +e.target.getAttribute('step'));
     }
-    const handleResetClick = e => setCount(0);
+    const handleResetClick = e => {
+        setCount(0);
+        resetClick(id, 0);
+    }
     const handleEditNameChange = e => setCounterName(e.target.value);
 
     return (
