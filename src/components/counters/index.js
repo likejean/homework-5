@@ -9,7 +9,7 @@ import DeleteCounterButton from "./menu/DeleteCounterButton";
 import EditCounterNameInput from "./menu/EditCounterNameInput";
 import ResetCounterButton from "./menu/ResetCounterButton";
 
-export default ({ index, counterName, value }) => {
+export default ({ index, counterName, value, deleteClick }) => {
 
     const [ rangeLimits, setRangeLimits ] = useState({
         lower : 1,
@@ -41,7 +41,7 @@ export default ({ index, counterName, value }) => {
     return (
         <div>
             <div>
-                {index}{counterName}
+                {`${index}. `}{counterName}
                 {rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={-1} item={item}/>)}
                 <CounterRangeInput limit={rangeLimits.lower} mode={rangeLimits.fieldStatus.lower} name="lower" handleRangeChange={handleRangeChange}/>
                 <DisplayCount count={count}/>
@@ -54,7 +54,7 @@ export default ({ index, counterName, value }) => {
 
             </div>
             <div>
-                <DeleteCounterButton/>
+                <DeleteCounterButton index={index} deleteClick={deleteClick}/>
                 <EditCounterNameInput/>
                 <ResetCounterButton handleResetClick={handleResetClick}/>
             </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default () => {
+export default ({ deleteClick, index }) => {
     return (
-        <button onClick={()=>{}}>Delete</button>
+        <button id={index} onClick={deleteClick}>Delete</button>
     );
 
 }

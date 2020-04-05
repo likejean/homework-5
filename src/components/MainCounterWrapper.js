@@ -13,8 +13,6 @@ export default ({name}) => {
     const [newCounter, setNewCounter] = useState({name: 'Counter Name', value: 50});
 
     const handleCounterInfoChange = e => setNewCounter({...newCounter, [e.target.name]: e.target.value});
-
-
     const handleCounterAddClick = () => setCounterList([
         ...counterList,
         {
@@ -24,6 +22,12 @@ export default ({name}) => {
         }]
     );
 
+    const handleCounterDeleteClick = e => {
+        setCounterList([...counterList].filter(item => item.id !== +e.target.id));
+        counterList.forEach((item, id) => {
+            item.id <= +e.target.id ? item.id = id + 1 : item.id = id;
+        });
+    }
 
     const handleEventProps = {
         addClick: handleCounterAddClick,
@@ -35,8 +39,15 @@ export default ({name}) => {
         <div>
             <h1 className="header">{name}</h1>
             <hr></hr>
-            {counterList.map((counter, idx) => <CounterComponent key={idx} index={counter.id + '. '}
-                                                                 counterName={counter.name} value={counter.value}/>)}
+            {counterList.map((counter, idx) =>
+                <CounterComponent
+                    key={idx}
+                    deleteClick={handleCounterDeleteClick}
+                    index={counter.id}
+                    counterName={counter.name}
+                    value={counter.value}/>
+            )
+            }
             <hr></hr>
             <CounterAddForm {...handleEventProps}/>
         </div>
