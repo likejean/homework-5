@@ -14,7 +14,7 @@ export default ({ inputChange, name, value }) => {
 
             <input
                 data-testid="counter-value-input"
-                type="number"
+                type="text"
                 name="value"
                 value={ value }
                 onChange={ inputChange }

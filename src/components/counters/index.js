@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Validation from '../../helpers/Validation';
+import CounterRangeValidation from '../../helpers/CounterRangeValidation';
 import _ from 'lodash';
 import CounterRangeInput from "./panel/CounterRangeInput";
 import DisplayCount from "./panel/DisplayCount";
@@ -32,7 +32,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
         setRangeLimits({ ...rangeLimits, [ name ]: +value });
         let tempUpper = rangeLimits[ "upper" ];
         let tempLower = rangeLimits[ "lower" ];
-        Validation (name, value, fieldStatus, tempUpper, tempLower, errors);
+        CounterRangeValidation (name, value, fieldStatus, tempUpper, tempLower, errors);
     }
 
     const handleButtonClick = e => {

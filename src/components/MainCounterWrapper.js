@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import CounterAddForm from './forms';
 import CounterComponent from "./counters";
+import NewCounterFormInputValidation from "../helpers/NewCounterFormInputValidation";
 
 export default ({ name }) => {
     const [counterList, setCounterList] = useState([
@@ -10,10 +11,23 @@ export default ({ name }) => {
             value: 0
         }
     ]);
-    const [newCounter, setNewCounter] = useState({name: 'Counter Name', value: 50});
+    const [newCounter, setNewCounter] = useState({
+        name: 'Counter Name',
+        value: 50,
+        errors: {
+            name: "",
+            value: ""
+        }
+    });
 
 
-    const handleCounterInfoChange = e => setNewCounter({...newCounter, [e.target.name]: +e.target.value});
+    const handleCounterInfoChange = e => {
+        const { name, value } = e.target;
+        setNewCounter({...newCounter, [ name ]: value});
+        const errors = newCounter.errors;
+        NewCounterFormInputValidation(name, value, errors);
+    };
+
     const handleCounterAddClick = () => setCounterList([
         ...counterList,
         {
@@ -52,6 +66,7 @@ export default ({ name }) => {
         id: newCounter.id,
         name: newCounter.name,
         value: newCounter.value,
+        errors: newCounter.errors
     };
 
     //Counter JSX
