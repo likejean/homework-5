@@ -1,8 +1,14 @@
 import React from "react";
 
-export default ({ limit, mode, name, handleRangeChange }) => {
+export default ({ counterName, handleEditNameChange }) => {
 
     return (
-        <span>Modal</span>
+        <input
+            data-testid="limit-input"
+            type="text"
+            name="edit"
+            value={ counterName }
+            onChange={ handleEditNameChange }
+        />
     );
 }

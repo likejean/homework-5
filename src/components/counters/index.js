@@ -9,8 +9,7 @@ import DeleteCounterButton from "./menu/DeleteCounterButton";
 import EditCounterNameInput from "./menu/EditCounterNameInput";
 import ResetCounterButton from "./menu/ResetCounterButton";
 
-export default ({ index, counterName, value, deleteClick }) => {
-
+export default ({ id, name, value, deleteClick, updateClick }) => {
     const [ rangeLimits, setRangeLimits ] = useState({
         lower : 1,
         upper : 1,
@@ -24,6 +23,7 @@ export default ({ index, counterName, value, deleteClick }) => {
         }
     });
     const [count, setCount] = useState(value);
+    const [counterName, setCounterName] = useState(name);
 
     const handleRangeChange = e => {
         const { name, value } = e.target;
@@ -35,13 +35,17 @@ export default ({ index, counterName, value, deleteClick }) => {
         Validation (name, value, fieldStatus, tempUpper, tempLower, errors);
     }
 
-    const handleButtonClick = e => setCount(count + +e.target.getAttribute('step'));
+    const handleButtonClick = e => {
+        setCount(count + +e.target.getAttribute('step'));
+        updateClick(id, count + +e.target.getAttribute('step'));
+    }
     const handleResetClick = e => setCount(0);
+    const handleEditNameChange = e => setCounterName(e.target.value);
 
     return (
         <div>
             <div>
-                {`${index}. `}{counterName}
+                {`${id}. `}{counterName}
                 {rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={-1} item={item}/>)}
                 <CounterRangeInput limit={rangeLimits.lower} mode={rangeLimits.fieldStatus.lower} name="lower" handleRangeChange={handleRangeChange}/>
                 <DisplayCount count={count}/>
@@ -54,8 +58,8 @@ export default ({ index, counterName, value, deleteClick }) => {
 
             </div>
             <div>
-                <DeleteCounterButton index={index} deleteClick={deleteClick}/>
-                <EditCounterNameInput/>
+                <DeleteCounterButton index={id} deleteClick={deleteClick}/>
+                <EditCounterNameInput handleEditNameChange={handleEditNameChange} counterName={counterName}/>
                 <ResetCounterButton handleResetClick={handleResetClick}/>
             </div>
         </div>

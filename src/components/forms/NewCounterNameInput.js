@@ -10,7 +10,6 @@ export default ({ inputChange, name, value }) => {
                 name="name"
                 value={ name }
                 onChange={ inputChange }
-                // disabled = { mode }
             />
 
             <input
@@ -19,7 +18,6 @@ export default ({ inputChange, name, value }) => {
                 name="value"
                 value={ value }
                 onChange={ inputChange }
-                // disabled = { mode }
             />
         </div>
     );
