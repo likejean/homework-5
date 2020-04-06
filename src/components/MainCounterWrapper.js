@@ -74,7 +74,7 @@ export default ({ name }) => {
         <div>
             <h1 className="header">{name}</h1>
             <hr></hr>
-            <h3>Total: {counterList.reduce((accumulator, counter) => accumulator + +counter.value, 0)}</h3>
+            <h3 className="total-count">Total: {counterList.reduce((accumulator, counter) => accumulator + +counter.value, 0)}</h3>
             {counterList.map((counter, idx) =>
                 <CounterComponent
                     key={idx}
@@ -88,6 +88,7 @@ export default ({ name }) => {
             }
             <hr></hr>
             <CounterAddForm {...handleEventProps} {...handleStateProps} />
+            <hr></hr>
         </div>
     );
 }

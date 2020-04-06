@@ -1,8 +1,11 @@
 import React from 'react';
+import { MDBBtn } from "mdbreact";
 
-export default ({ handleResetClick }) => {
-    return (
-        <button onClick={handleResetClick}>Reset</button>
-    );
-
-}
+export default ({ handleResetClick }) => <MDBBtn
+        className="reset"
+        color="primary"
+        rounded
+        onClick={handleResetClick}
+    >
+        Reset
+    </MDBBtn>;

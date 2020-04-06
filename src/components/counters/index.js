@@ -41,8 +41,6 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
     const handleStepOptionsClick = e => setStepOptionsAvailable({...stepOptionsAvailable, [e.target.name] : false });
     const handleInputCloseClick = e => setStepOptionsAvailable({...stepOptionsAvailable, [e.target.name] : true });
 
-
-    console.log(stepOptionsAvailable);
     const handleButtonClick = e => {
         setCount(count + +e.target.getAttribute('step'));
         updateClick(id, count + +e.target.getAttribute('step'));
@@ -54,9 +52,9 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
     const handleEditNameChange = e => setCounterName(e.target.value);
 
     return (
-        <div>
-            <div>
-                {`${id}. `}{counterName}
+        <div className="container-fluid counter-wrapper">
+            <div className="row align-items-center justify-content-center"><h3>{`${id}. `}{counterName}</h3></div>
+            <div className="row align-items-center justify-content-center">
                 {rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={-1} item={item}/>)}
                 {stepOptionsAvailable.negative
                 ?
@@ -84,7 +82,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
                 {rangeLimits.errors.upper && <ErrorNote error={rangeLimits.errors.upper}/>}
 
             </div>
-            <div>
+            <div className='row align-items-center justify-content-center'>
                 <DeleteCounterButton index={id} deleteClick={deleteClick}/>
                 <EditCounterNameInput handleEditNameChange={handleEditNameChange} counterName={counterName}/>
                 <ResetCounterButton handleResetClick={handleResetClick}/>

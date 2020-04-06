@@ -1,9 +1,9 @@
 import React from 'react';
-
+import { MDBBtn } from "mdbreact";
 
 export default ({ item, sign, handleButtonClick }) => {
 
     return (
-        <button onClick={handleButtonClick} step={sign * item}>{ sign * item}</button>
+        <MDBBtn color="black" onClick={handleButtonClick} step={sign * item}>{ sign * item}</MDBBtn>
     );
 }
