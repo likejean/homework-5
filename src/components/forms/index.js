@@ -10,7 +10,7 @@ export default ({ addClick, inputChange, name, value, errors }) => {
             {errors.name && <ErrorNote error={errors.name}/>}
             {errors.value && <ErrorNote error={errors.value}/>}
             <br></br>
-            <NewCounterAddButton addClick={addClick}/>
+            <NewCounterAddButton addClick={addClick} errorStatus={errors.name || errors.value ? true : false}/>
         </div>
     );
 }

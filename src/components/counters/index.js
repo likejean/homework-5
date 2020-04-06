@@ -8,11 +8,13 @@ import ErrorNote from "./panel/ErrorNote";
 import DeleteCounterButton from "./menu/DeleteCounterButton";
 import EditCounterNameInput from "./menu/EditCounterNameInput";
 import ResetCounterButton from "./menu/ResetCounterButton";
+import CounterStepOptionsButton from "./panel/CounterStepOptionsButton";
+import CloseInputRangeButton from "./panel/CloseInputRangeButton";
 
 export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
     const [ rangeLimits, setRangeLimits ] = useState({
         lower : 1,
-        upper : 1,
+        upper : 3,
         errors: {
             lower: "",
             upper: ""
@@ -24,6 +26,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
     });
     const [count, setCount] = useState(value);
     const [counterName, setCounterName] = useState(name);
+    const [stepOptionsAvailable, setStepOptionsAvailable] = useState({negative: true, positive: true})
 
     const handleRangeChange = e => {
         const { name, value } = e.target;
@@ -35,6 +38,11 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
         CounterRangeValidation (name, value, fieldStatus, tempUpper, tempLower, errors);
     }
 
+    const handleStepOptionsClick = e => setStepOptionsAvailable({...stepOptionsAvailable, [e.target.name] : false });
+    const handleInputCloseClick = e => setStepOptionsAvailable({...stepOptionsAvailable, [e.target.name] : true });
+
+
+    console.log(stepOptionsAvailable);
     const handleButtonClick = e => {
         setCount(count + +e.target.getAttribute('step'));
         updateClick(id, count + +e.target.getAttribute('step'));
@@ -50,9 +58,25 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
             <div>
                 {`${id}. `}{counterName}
                 {rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={-1} item={item}/>)}
-                <CounterRangeInput limit={rangeLimits.lower} mode={rangeLimits.fieldStatus.lower} name="lower" handleRangeChange={handleRangeChange}/>
+                {stepOptionsAvailable.negative
+                ?
+                    <CounterStepOptionsButton name={"negative"} stepOptionsClick={handleStepOptionsClick}/>
+                :
+                    <>
+                        <CounterRangeInput limit={rangeLimits.lower} mode={rangeLimits.fieldStatus.lower} name="lower" handleRangeChange={handleRangeChange}/>
+                        <CloseInputRangeButton name={"negative"} inputCloseClick={handleInputCloseClick}/>
+                    </>
+                }
                 <DisplayCount count={count}/>
-                <CounterRangeInput limit={rangeLimits.upper} mode={rangeLimits.fieldStatus.upper} name="upper" handleRangeChange={handleRangeChange}/>
+                {stepOptionsAvailable.positive
+                    ?
+                    <CounterStepOptionsButton name={"positive"} stepOptionsClick={handleStepOptionsClick}/>
+                    :
+                    <>
+                        <CloseInputRangeButton name={"positive"} inputCloseClick={handleInputCloseClick}/>
+                        <CounterRangeInput limit={rangeLimits.upper} mode={rangeLimits.fieldStatus.upper} name="upper" handleRangeChange={handleRangeChange}/>
+                    </>
+                }
                 {rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={1} item={item}/>)}
 
                 <br></br>

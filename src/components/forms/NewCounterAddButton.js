@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default ({ addClick }) => {
+export default ({ addClick, errorStatus }) => {
     return (
-        <button onClick={addClick}>Add</button>
+        <button onClick={addClick} disabled={errorStatus}>Add</button>
     );
 
 }

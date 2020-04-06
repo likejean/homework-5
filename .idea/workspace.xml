@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b097581e-7b82-40bd-a83f-283cd5544b2a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/helpers/NewCounterFormInputValidation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/StringLengthDetermination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/counters/panel/CloseInputRangeButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/counters/panel/CounterStepOptionsButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainCounterWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainCounterWrapper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/counters/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counters/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/NewCounterNameInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/NewCounterNameInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/forms/NewCounterAddButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/NewCounterAddButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/forms/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/CounterRangeValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/NewCounterFormInputValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/NewCounterFormInputValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/StringLengthDetermination.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586045035137</updated>
-      <workItem from="1586045036966" duration="41859000" />
+      <workItem from="1586045036966" duration="45279000" />
     </task>
     <servers />
   </component>

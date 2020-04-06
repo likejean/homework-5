@@ -9,7 +9,6 @@ export default (name, value, errors) => {
             ;
             break;
         case 'name':
-
             errors.name = value.length <= 6
                 ? 'Counter name should be longer than 6 characters'
                 : ''
