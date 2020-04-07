@@ -37,6 +37,8 @@ export default ({ name }) => {
         }]
     );
 
+    console.log(counterList)
+
     const handleCounterValueUpdate = (id, count) => setCounterList([...counterList].map(counter =>
             counter.id === id ? { ...counter, value: count } : counter
         ));
@@ -52,21 +54,27 @@ export default ({ name }) => {
         });
     };
 
+    const handleUpdateName = () => {
+        console.log(counterList);
+        setCounterList(counterList);
+    }
+
     //Event & State PROPS
     const handleEventProps = {
         addClick: handleCounterAddClick,
         inputChange: handleCounterInfoChange,
         deleteClick: handleCounterDeleteClick,
         updateClick: handleCounterValueUpdate,
-        resetClick: handleCounterResetClick
-
+        resetClick: handleCounterResetClick,
+        updateName: handleUpdateName
 
     };
     const handleStateProps = {
         id: newCounter.id,
         name: newCounter.name,
         value: newCounter.value,
-        errors: newCounter.errors
+        errors: newCounter.errors,
+        counterList: counterList
     };
 
     //Counter JSX
@@ -84,6 +92,8 @@ export default ({ name }) => {
                     id={counter.id}
                     name={counter.name}
                     value={counter.value}
+                    counterList={counterList}
+                    updateName={handleEventProps.updateName}
                 />)
             }
             <hr></hr>

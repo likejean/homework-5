@@ -11,7 +11,7 @@ import ResetCounterButton from "./menu/ResetCounterButton";
 import CounterStepOptionsButton from "./panel/CounterStepOptionsButton";
 import CloseInputRangeButton from "./panel/CloseInputRangeButton";
 
-export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
+export default ({ id, name, value, deleteClick, updateClick, resetClick, updateName, counterList }) => {
     const [ rangeLimits, setRangeLimits ] = useState({
         lower : 1,
         upper : 3,
@@ -24,7 +24,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
             lower: false
         }
     });
-    console.log(rangeLimits.lower, rangeLimits.upper)
+
     const [count, setCount] = useState(value);
     const [counterName, setCounterName] = useState(name);
     const [stepOptionsAvailable, setStepOptionsAvailable] = useState({negative: true, positive: true})
@@ -50,7 +50,12 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
         setCount(0);
         resetClick(id, 0);
     }
-    const handleEditNameChange = e => setCounterName(e.target.value);
+
+
+    const handleEditNameChange = e => {
+        setCounterName(e.target.value);
+        counterList.some(counter => counter.id === +e.target.getAttribute('id') ? counter.name = e.target.value : null);
+    }
 
     return (
         <div className="container-fluid counter-wrapper">
@@ -66,7 +71,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
                         <CloseInputRangeButton name={"negative"} inputCloseClick={handleInputCloseClick}/>
                     </>
                 }
-                <DisplayCount count={value}/>
+                <DisplayCount count={+value}/>
                 {stepOptionsAvailable.positive
                     ?
                     <CounterStepOptionsButton name={"positive"} stepOptionsClick={handleStepOptionsClick}/>
@@ -87,7 +92,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
             <div className="row align-items-center justify-content-center">{rangeLimits.errors.upper && <ErrorNote error={rangeLimits.errors.upper}/>}</div>
             <div className='row align-items-center justify-content-center'>
                 <DeleteCounterButton index={id} deleteClick={deleteClick}/>
-                <EditCounterNameInput handleEditNameChange={handleEditNameChange} counterName={counterName}/>
+                <EditCounterNameInput index={id} updateName={updateName} handleEditNameChange={handleEditNameChange} counterName={counterName}/>
                 <ResetCounterButton handleResetClick={handleResetClick}/>
             </div>
         </div>
