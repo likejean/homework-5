@@ -7,6 +7,7 @@ export default ({ limit, mode, name, handleRangeChange }) => {
             data-testid="limit-input"
             type="text"
             name={ name }
+            className="form-control"
             value={ limit }
             onChange={ handleRangeChange }
             disabled = { mode }

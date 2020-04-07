@@ -1,9 +1,12 @@
 import React from 'react';
-
+import { MDBBtn } from "mdbreact";
 
 export default ({ name, inputCloseClick }) => {
 
     return (
-        <button name={name} onClick={inputCloseClick}>X</button>
+        <MDBBtn color="danger" rounded outline className="close-button" onClick={inputCloseClick} name={name}>
+            X
+        </MDBBtn>
     );
 }
+

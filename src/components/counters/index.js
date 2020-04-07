@@ -24,6 +24,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
             lower: false
         }
     });
+    console.log(rangeLimits.lower, rangeLimits.upper)
     const [count, setCount] = useState(value);
     const [counterName, setCounterName] = useState(name);
     const [stepOptionsAvailable, setStepOptionsAvailable] = useState({negative: true, positive: true})
@@ -53,9 +54,9 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
 
     return (
         <div className="container-fluid counter-wrapper">
-            <div className="row align-items-center justify-content-center"><h3>{`${id}. `}{counterName}</h3></div>
+            <div className="row align-items-center justify-content-center"><h3>{`${id}. `}{name}</h3></div>
             <div className="row align-items-center justify-content-center">
-                {rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={-1} item={item}/>)}
+                {rangeLimits.lower > 0 && rangeLimits.upper > 0 && rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={-1} item={item}/>)}
                 {stepOptionsAvailable.negative
                 ?
                     <CounterStepOptionsButton name={"negative"} stepOptionsClick={handleStepOptionsClick}/>
@@ -65,7 +66,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
                         <CloseInputRangeButton name={"negative"} inputCloseClick={handleInputCloseClick}/>
                     </>
                 }
-                <DisplayCount count={count}/>
+                <DisplayCount count={value}/>
                 {stepOptionsAvailable.positive
                     ?
                     <CounterStepOptionsButton name={"positive"} stepOptionsClick={handleStepOptionsClick}/>
@@ -75,13 +76,15 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick }) => {
                         <CounterRangeInput limit={rangeLimits.upper} mode={rangeLimits.fieldStatus.upper} name="upper" handleRangeChange={handleRangeChange}/>
                     </>
                 }
-                {rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={1} item={item}/>)}
+                {rangeLimits.lower > 0 && rangeLimits.upper > 0 && rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={1} item={item}/>)}
 
                 <br></br>
-                {rangeLimits.errors.lower && <ErrorNote error={rangeLimits.errors.lower}/>}
-                {rangeLimits.errors.upper && <ErrorNote error={rangeLimits.errors.upper}/>}
+
 
             </div>
+            <div className="row align-items-center justify-content-center">{rangeLimits.errors.lower && <ErrorNote error={rangeLimits.errors.lower}/>}</div>
+
+            <div className="row align-items-center justify-content-center">{rangeLimits.errors.upper && <ErrorNote error={rangeLimits.errors.upper}/>}</div>
             <div className='row align-items-center justify-content-center'>
                 <DeleteCounterButton index={id} deleteClick={deleteClick}/>
                 <EditCounterNameInput handleEditNameChange={handleEditNameChange} counterName={counterName}/>

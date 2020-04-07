@@ -6,6 +6,7 @@ export default ({ counterName, handleEditNameChange }) => {
             <label>Edit Name: </label>
             <input
                 data-testid="limit-input"
+                className="form-control"
                 type="text"
                 name="edit"
                 value={ counterName }

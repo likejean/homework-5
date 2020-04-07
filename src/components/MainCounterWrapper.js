@@ -46,7 +46,7 @@ export default ({ name }) => {
         ));
 
     const handleCounterDeleteClick = e => {
-        setCounterList([...counterList].filter(item => item.id !== +e.target.id));
+        setCounterList([...counterList].filter(item => item.id!== +e.target.id));
         counterList.forEach((item, id) => {
             item.id <= +e.target.id ? item.id = id + 1 : item.id = id;
         });

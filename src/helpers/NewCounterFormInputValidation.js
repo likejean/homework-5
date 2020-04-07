@@ -4,7 +4,7 @@ export default (name, value, errors) => {
     switch (name) {
         case 'value':
             errors.value = isNaN(value) || Number.isInteger(value) || isEmptyValue(value) || value === " "
-                ? 'ERROR! Input must be an Integer'
+                ? 'Input must be an Integer'
                 : ''
             ;
             break;

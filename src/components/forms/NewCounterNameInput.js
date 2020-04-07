@@ -9,6 +9,7 @@ export default ({ inputChange, name, value }) => {
                 <input
                     data-testid="counter-name-input"
                     type="text"
+                    className="form-control"
                     name="name"
                     value={ name }
                     onChange={ inputChange }
@@ -22,6 +23,7 @@ export default ({ inputChange, name, value }) => {
                 <input
                     data-testid="counter-value-input"
                     type="text"
+                    className="form-control"
                     name="value"
                     value={ value }
                     onChange={ inputChange }
