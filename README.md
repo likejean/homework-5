@@ -3,9 +3,13 @@
 ##### 1. How to Add a new Counter: 
 > (a) enter the new counter name and its initial count in the inputs of the form located at the bottom;
 
-(b) click ADD COUNTER (green) button to add a new counter;
+> (b) click ADD COUNTER (green) button to add a new counter;
 
-(c) ADD COUNTER (green) button will be disabled, if either input is invalid (d) Error message will appear at the bottom if input entry is invalid (e) All counters will be ordered in the right ascending id order regardless adding or deleting counters;
+> (c) ADD COUNTER (green) button will be disabled, if either input is invalid 
+
+> (d) Error message will appear at the bottom if input entry is invalid 
+
+> (e) All counters will be ordered in the right ascending id order regardless adding or deleting counters;
 
 ##### 2. Click the red button "DELETE" to delete an entire counter.
 
@@ -18,7 +22,7 @@
 ##### 5. Enter ONLY positive integers into either field to specify the counter increamental range 
 > (a) if a user enters integer value into the lower limit input greater than the current value in the upper limit, the upper limit input will be disabled. 
 
-(b) error message will be appear below if invalid integer or invalid character will be entered into either input field
+> (b) error message will be appear below if invalid integer or invalid character will be entered into either input field
 
 ##### 6. Click rounded red circle button w/ the cross to close the range limit input fields back to the initial interface state
 
