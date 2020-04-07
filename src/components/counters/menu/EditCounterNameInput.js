@@ -1,7 +1,6 @@
 import React from "react";
 
-export default ({ index, counterName, handleEditNameChange, updateName }) => {
-    console.log(updateName)
+export default ({ index, counterName, handleEditNameChange }) => {
     return (
         <div>
             <label>Edit Name: </label>

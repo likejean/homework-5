@@ -11,7 +11,7 @@ import ResetCounterButton from "./menu/ResetCounterButton";
 import CounterStepOptionsButton from "./panel/CounterStepOptionsButton";
 import CloseInputRangeButton from "./panel/CloseInputRangeButton";
 
-export default ({ id, name, value, deleteClick, updateClick, resetClick, updateName, counterList }) => {
+export default ({ id, name, value, deleteClick, updateClick, resetClick, counterList }) => {
     const [ rangeLimits, setRangeLimits ] = useState({
         lower : 1,
         upper : 3,
@@ -92,7 +92,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, updateN
             <div className="row align-items-center justify-content-center">{rangeLimits.errors.upper && <ErrorNote error={rangeLimits.errors.upper}/>}</div>
             <div className='row align-items-center justify-content-center'>
                 <DeleteCounterButton index={id} deleteClick={deleteClick}/>
-                <EditCounterNameInput index={id} updateName={updateName} handleEditNameChange={handleEditNameChange} counterName={counterName}/>
+                <EditCounterNameInput index={id} handleEditNameChange={handleEditNameChange} counterName={counterName}/>
                 <ResetCounterButton handleResetClick={handleResetClick}/>
             </div>
         </div>

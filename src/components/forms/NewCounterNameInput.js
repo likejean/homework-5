@@ -16,8 +16,6 @@ export default ({ inputChange, name, value }) => {
                 />
             </div>
 
-            <br></br>
-
             <div className='row align-items-center justify-content-center'>
                 <label>Initial Count: </label>
                 <input
