@@ -2,7 +2,8 @@
 
 ###Links
 
-[Links](hhttps://likejean.github.io/homework-5/)
+`<link>` : <https://likejean.github.io/homework-5/>
+
 
 #### 1. How to Add a new Counter: 
 > (a) enter the new counter name and its initial count in the inputs of the form located at the bottom;
