@@ -3,7 +3,7 @@ import React from "react";
 export default ({ index, counterName, handleEditNameChange }) => {
     return (
         <div>
-            <label>Edit Name: </label>
+            <label>Edit Counter Title: </label>
             <input
                 data-testid="limit-input"
                 className="form-control"

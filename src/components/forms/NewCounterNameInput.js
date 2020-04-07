@@ -5,7 +5,7 @@ export default ({ inputChange, name, value }) => {
     return (
         <div className='col-6 container'>
             <div className='row align-items-center justify-content-center'>
-                <label>Enter Name: </label>
+                <label>Enter Counter Title: </label>
                 <input
                     data-testid="counter-name-input"
                     type="text"
@@ -17,7 +17,7 @@ export default ({ inputChange, name, value }) => {
             </div>
 
             <div className='row align-items-center justify-content-center'>
-                <label>Initial Count: </label>
+                <label>Enter Initial Count: </label>
                 <input
                     data-testid="counter-value-input"
                     type="text"

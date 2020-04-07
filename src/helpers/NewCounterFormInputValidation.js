@@ -3,7 +3,7 @@ import {isEmptyValue} from "enzyme/src/Utils";
 export default (name, value, errors) => {
     switch (name) {
         case 'value':
-            errors.value = isNaN(value) || Number.isInteger(value) || isEmptyValue(value) || value === " "
+            errors.value = isNaN(value) || value === (null || "")
                 ? 'Input must be an Integer'
                 : ''
             ;

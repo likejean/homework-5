@@ -11,9 +11,15 @@ export default ({ addClick, inputChange, name, value, errors }) => {
                 <br></br>
                 <NewCounterAddButton addClick={addClick} errorStatus={errors.name || errors.value ? true : false}/>
             </div>
-            <div className='row align-items-center justify-content-center container'>
-                {errors.name && <ErrorNote error={errors.name}/>}
-                {errors.value && <ErrorNote error={errors.value}/>}
+            <div className='row align-items-center justify-content-center'>
+                <div className='container'>
+                    <div className='row align-items-center justify-content-center'>
+                        {errors.name && <ErrorNote error={errors.name}/>}
+                    </div>
+                    <div className='row align-items-center justify-content-center'>
+                        {errors.value && <ErrorNote error={errors.value}/>}
+                    </div>
+                </div>
             </div>
         </div>
     );

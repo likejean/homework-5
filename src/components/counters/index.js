@@ -11,7 +11,9 @@ import ResetCounterButton from "./menu/ResetCounterButton";
 import CounterStepOptionsButton from "./panel/CounterStepOptionsButton";
 import CloseInputRangeButton from "./panel/CloseInputRangeButton";
 
-export default ({ id, name, value, deleteClick, updateClick, resetClick, counterList }) => {
+export default ({ id, name, value, deleteClick, updateClick, resetClick, updateName, counterList }) => {
+
+    ///////////////////////////////////////HOOKS///////////////////////////////////////
     const [ rangeLimits, setRangeLimits ] = useState({
         lower : 1,
         upper : 3,
@@ -24,16 +26,16 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, counter
             lower: false
         }
     });
-
     const [count, setCount] = useState(value);
     const [counterName, setCounterName] = useState(name);
     const [stepOptionsAvailable, setStepOptionsAvailable] = useState({negative: true, positive: true})
 
+    ///////////////////////////////////HANDLERS////////////////////////////////////////
     const handleRangeChange = e => {
         const { name, value } = e.target;
         let errors = rangeLimits.errors;
         let fieldStatus = rangeLimits.fieldStatus;
-        setRangeLimits({ ...rangeLimits, [ name ]: +value });
+        setRangeLimits({ ...rangeLimits, [ name ]: parseInt(value) });
         let tempUpper = rangeLimits[ "upper" ];
         let tempLower = rangeLimits[ "lower" ];
         CounterRangeValidation (name, value, fieldStatus, tempUpper, tempLower, errors);
@@ -43,20 +45,23 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, counter
     const handleInputCloseClick = e => setStepOptionsAvailable({...stepOptionsAvailable, [e.target.name] : true });
 
     const handleButtonClick = e => {
-        setCount(count + +e.target.getAttribute('step'));
-        updateClick(id, count + +e.target.getAttribute('step'));
+        setCount(count + parseInt(e.target.getAttribute('step')));
+        //Lifting props: updateClick()
+        updateClick(id, count + parseInt(e.target.getAttribute('step')));
     }
     const handleResetClick = e => {
         setCount(0);
+        //Lifting props: updateClick()
         resetClick(id, 0);
     }
 
-
     const handleEditNameChange = e => {
         setCounterName(e.target.value);
-        counterList.some(counter => counter.id === +e.target.getAttribute('id') ? counter.name = e.target.value : null);
+        //Lifting props: updateName()
+        updateName(parseInt(e.target.getAttribute('id')), e.target.value);
     }
 
+    //////////////////////////////////JSX///////////////////////////////////
     return (
         <div className="container-fluid counter-wrapper">
             <div className="row align-items-center justify-content-center"><h3>{`${id}. `}{name}</h3></div>
@@ -82,9 +87,6 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, counter
                     </>
                 }
                 {rangeLimits.lower > 0 && rangeLimits.upper > 0 && rangeLimits.lower && rangeLimits.upper && _.range(rangeLimits.lower, rangeLimits.upper + 1, 1).map((item, idx) => <CounterStepButton key={idx} handleButtonClick={handleButtonClick} sign={1} item={item}/>)}
-
-                <br></br>
-
 
             </div>
             <div className="row align-items-center justify-content-center">{rangeLimits.errors.lower && <ErrorNote error={rangeLimits.errors.lower}/>}</div>
