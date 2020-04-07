@@ -1,6 +1,6 @@
 ## INSTRUCTIONS HOW TO USE A COUNTER:
 
-###Links
+### Links
 
 `<link>` : <https://likejean.github.io/homework-5/>
 
