@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b097581e-7b82-40bd-a83f-283cd5544b2a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainCounterWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainCounterWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counters/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counters/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counters/menu/EditCounterNameInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counters/menu/EditCounterNameInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counters/panel/CounterRangeInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counters/panel/CounterRangeInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counters/panel/ErrorNote.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counters/panel/ErrorNote.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/NewCounterNameInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/NewCounterNameInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/CounterRangeValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/CounterRangeValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/NewCounterFormInputValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/NewCounterFormInputValidation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586045035137</updated>
       <workItem from="1586045036966" duration="58276000" />
-      <workItem from="1586183900314" duration="20718000" />
+      <workItem from="1586183900314" duration="21660000" />
     </task>
     <servers />
   </component>
