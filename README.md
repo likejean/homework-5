@@ -26,7 +26,4 @@
 
 ##### 9. Use the inputf fieldd inside the each counter to edit its title (if desired). The new title will be reflected at the top of the counter.
 
-**Table of Contents**
-[TOCM]
 
-[TOC]
