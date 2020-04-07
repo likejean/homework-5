@@ -1,11 +1,9 @@
 ## INSTRUCTIONS HOW TO USE A COUNTER:
 
 ##### 1. How to Add a new Counter: 
-> (a) enter the new counter name and its initial count in the inputs of the form located at the bottom
-
-> (b) click ADD COUNTER (green) button to add a new counter;
-
-> (c) ADD COUNTER (green) button will be disabled, if either input is invalid (d) Error message will appear at the bottom if input entry is invalid (e) All counters will be ordered in the right ascending id order regardless adding or deleting counters
+> (a) enter the new counter name and its initial count in the inputs of the form located at the bottom;
+(b) click ADD COUNTER (green) button to add a new counter;
+(c) ADD COUNTER (green) button will be disabled, if either input is invalid (d) Error message will appear at the bottom if input entry is invalid (e) All counters will be ordered in the right ascending id order regardless adding or deleting counters;
 
 ##### 2. Click the red button "DELETE" to delete an entire counter.
 
