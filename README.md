@@ -36,3 +36,6 @@
 #### 8. Any count changes at any counter should be accumulated/reduced at the total count located at the top of the all counter
 
 #### 9. Use the input field inside the each counter to edit its title (if desired). The new title will be reflected at the top of the counter.
+
+
+
