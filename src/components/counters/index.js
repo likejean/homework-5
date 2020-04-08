@@ -26,9 +26,10 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, updateN
             lower: false
         }
     });
-    const [count, setCount] = useState(value);
+    const [count, setCount] = useState(parseInt(value));
     const [counterName, setCounterName] = useState(name);
-    const [stepOptionsAvailable, setStepOptionsAvailable] = useState({negative: true, positive: true})
+    const [stepOptionsAvailable, setStepOptionsAvailable] = useState({negative: true, positive: true});
+    const [invalidInputError, setInvalidInputError] = useState(false);
 
     ///////////////////////////////////HANDLERS////////////////////////////////////////
     const handleRangeChange = e => {
@@ -45,9 +46,16 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, updateN
     const handleInputCloseClick = e => setStepOptionsAvailable({...stepOptionsAvailable, [e.target.name] : true });
 
     const handleButtonClick = e => {
-        setCount(count + parseInt(e.target.getAttribute('step')));
-        //Lifting props: updateClick()
-        updateClick(id, count + parseInt(e.target.getAttribute('step')));
+        if (!isNaN(parseInt(e.target.getAttribute('step')))) {
+            if (invalidInputError) setInvalidInputError(false);
+            setCount(count + parseInt(e.target.getAttribute('step')));
+            //Lifting props: updateClick()
+            updateClick(id, count + parseInt(e.target.getAttribute('step')));
+
+        }else{
+            setCount(+value);
+            setInvalidInputError(true);
+        }
     }
     const handleResetClick = e => {
         setCount(0);
@@ -76,7 +84,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, updateN
                         <CloseInputRangeButton name={"negative"} inputCloseClick={handleInputCloseClick}/>
                     </>
                 }
-                <DisplayCount count={+value}/>
+                <DisplayCount count={parseInt(value)}/>
                 {stepOptionsAvailable.positive
                     ?
                     <CounterStepOptionsButton name={"positive"} stepOptionsClick={handleStepOptionsClick}/>
@@ -90,7 +98,7 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, updateN
 
             </div>
             <div className="row align-items-center justify-content-center">{rangeLimits.errors.lower && <ErrorNote error={rangeLimits.errors.lower}/>}</div>
-
+            <div>{invalidInputError && <ErrorNote error={"Slow down, please!!!"}/>}</div>
             <div className="row align-items-center justify-content-center">{rangeLimits.errors.upper && <ErrorNote error={rangeLimits.errors.upper}/>}</div>
             <div className='row align-items-center justify-content-center'>
                 <DeleteCounterButton index={id} deleteClick={deleteClick}/>

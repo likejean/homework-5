@@ -2,7 +2,6 @@ export default (name, value, fieldStatus, tempUpper, tempLower, errors) => {
     switch (name) {
 
         case 'upper':
-
             errors.upper =
                 isNaN(value) || value === (null || "")
                     ? 'Input must be an INTEGER'

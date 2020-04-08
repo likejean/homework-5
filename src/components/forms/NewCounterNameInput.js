@@ -20,10 +20,10 @@ export default ({ inputChange, name, value }) => {
                 <label>Enter Initial Count: </label>
                 <input
                     data-testid="counter-value-input"
-                    type="text"
+                    type="number"
                     className="form-control"
                     name="value"
-                    value={ value }
+                    value={ isNaN(value) ? '' : value }
                     onChange={ inputChange }
                 />
             </div>

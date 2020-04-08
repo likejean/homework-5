@@ -1,5 +1,3 @@
-import {isEmptyValue} from "enzyme/src/Utils";
-
 export default (name, value, errors) => {
     switch (name) {
         case 'value':
