@@ -46,8 +46,8 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, updateN
     const handleInputCloseClick = e => setStepOptionsAvailable({...stepOptionsAvailable, [e.target.name] : true });
 
     const handleButtonClick = e => {
+        console.log('step', parseInt(e.target.getAttribute('step')));
         if (!isNaN(parseInt(e.target.getAttribute('step')))) {
-            if (invalidInputError) setInvalidInputError(false);
             setCount(count + parseInt(e.target.getAttribute('step')));
             //Lifting props: updateClick()
             updateClick(id, count + parseInt(e.target.getAttribute('step')));
@@ -68,6 +68,8 @@ export default ({ id, name, value, deleteClick, updateClick, resetClick, updateN
         //Lifting props: updateName()
         updateName(parseInt(e.target.getAttribute('id')), e.target.value);
     }
+
+    if (invalidInputError) setTimeout(() => setInvalidInputError(false), 1000);
 
     //////////////////////////////////JSX///////////////////////////////////
     return (
