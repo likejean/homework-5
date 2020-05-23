@@ -11,7 +11,7 @@ import ResetCounterButton from "./menu/ResetCounterButton";
 import CounterStepOptionsButton from "./panel/CounterStepOptionsButton";
 import CloseInputRangeButton from "./panel/CloseInputRangeButton";
 
-export default ({ id, name, value, deleteClick, updateClick, resetClick, updateName, counterList }) => {
+export default ({ id, name, value, deleteClick, updateClick, resetClick, updateName }) => {
 
     ///////////////////////////////////////HOOKS///////////////////////////////////////
     const [ rangeLimits, setRangeLimits ] = useState({

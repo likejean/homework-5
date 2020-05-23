@@ -1,7 +1,6 @@
 import React from "react";
 
 export default ({ inputChange, name, value }) => {
-
     return (
         <div className='col-6 container'>
             <div className='row align-items-center justify-content-center'>

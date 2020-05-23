@@ -1,7 +1,7 @@
 export default (name, value, errors) => {
     switch (name) {
         case 'value':
-            errors.value = isNaN(value) || value === (null || "")
+            errors.value = isNaN(value) || value === ""
                 ? 'Input must be an Integer'
                 : ''
             ;
