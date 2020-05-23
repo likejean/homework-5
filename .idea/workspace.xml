@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b097581e-7b82-40bd-a83f-283cd5544b2a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/counters/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counters/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/NewCounterAddButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/NewCounterAddButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/NewCounterNameInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/NewCounterNameInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/CounterRangeValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/CounterRangeValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/NewCounterFormInputValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/NewCounterFormInputValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +25,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../homework-6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -75,6 +70,7 @@
       <workItem from="1587027224438" duration="8293000" />
       <workItem from="1587178201381" duration="51000" />
       <workItem from="1587219969203" duration="47000" />
+      <workItem from="1590257199958" duration="742000" />
     </task>
     <servers />
   </component>
